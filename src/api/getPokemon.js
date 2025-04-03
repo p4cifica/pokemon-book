@@ -1,16 +1,14 @@
+import {dataFetcher} from "../utils/dataFetcher"
 
+// 全取得はEndpoint固定なのでここで持っておく
+const getPokemonEndpoint = "https://pokeapi.co/api/v2/pokemon"
 
 // 全部のポケモンの名前を取ってくる関数（エンドポイントは固定でもっておく）
 export const getAllPokemon = async () => {
-  const getPokemonEndpoint = "https://pokeapi.co/api/v2/pokemon"
-  return new Promise((resolve, reject) => {
-    fetch(getPokemonEndpoint).then((res => res.json())).then((data) => {resolve(data)})
-  })
+  return dataFetcher(getPokemonEndpoint)
 }
 
-// 単体取得（ぶち込まれたエンドポイント叩いてデータ返すだけ）
-export const getPokemon = async (endpoint) => {
-  return new Promise((resolve, reject) => {
-    fetch(endpoint).then((res => res.json())).then((data) => {resolve(data)})
-  })
+// ポケモンのデータを取ってくる関数（エンドポイントは上から貰う）
+export const getPokemon = async(endpoint) => {
+  return dataFetcher(endpoint)
 }
