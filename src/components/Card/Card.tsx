@@ -3,23 +3,24 @@ import { useEffect, useState } from "react";
 import "./Card.css";
 import { nameTranslater, typeTranslater } from "../../utils/translater";
 
-const Card = ({ pokemon }) => {
-  const [pokemonName, setName] = useState([pokemon.name]);
+const Card = ({pokemon}: any) => {
+  const [pokemonName, setName] = useState();
   useEffect(() => {
-    setName(nameTranslater(pokemon));
-  }, [pokemon]);
+    const translatedName: any = nameTranslater(pokemon)
+    setName(translatedName)
+  }, [pokemon])
 
   return (
     <div className="card">
       <div className="cardImg">
         <img src={pokemon.sprites.front_default} alt="" />
       </div>
-      <h3 className="cardName">{pokemonName}</h3>
+      {pokemonName ? <h3 className="cardName">pokemonName</h3> : <></> }
       <div className="cardTypes">
         <div>タイプ</div>
         <span className="typeName">
           {pokemon.types
-            .map((type) => typeTranslater(type.type.name))
+            .map((type: any) => typeTranslater(type.type.name))
             .join(" / ")}
         </span>
       </div>
@@ -35,7 +36,7 @@ const Card = ({ pokemon }) => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
 export default Card;

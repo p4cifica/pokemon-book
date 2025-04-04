@@ -20,17 +20,17 @@ function App() {
   // 表示するポケモンのデータ
   const [pokemonData, setPokemonData] = useState([]);
   // 次の頁のデータ
-  const [nextURL, setNextURL] = useState("");
+  const [nextURL, setNextURL] = useState<string>("");
   // 前の頁のデータ
-  const [previousURL, setPreviousURL] = useState("");
+  const [previousURL, setPreviousURL] = useState<string>("");
   // ロード中かどうかの状態
-  const [isLoading, setLoading] = useState(true);
+  const [isLoading, setLoading] = useState<boolean>(true);
 
   // 初回レンダリング
   useEffect(() => {
     // ポケモンのデータ取ってくる処理
     const initPage = async () => {
-      const res = await getAllPokemon();
+      const res: any = await getAllPokemon();
       loadPokemon(res.results);
       setNextURL(res.next);
       setPreviousURL(res.previous);
@@ -39,11 +39,11 @@ function App() {
   }, []);
 
   // 全部のデータぶちこんでポケモン単体の詳細データ取ってきてレコードで返すやつ
-  const loadPokemon = async (data) => {
+  const loadPokemon = async (data: any) => {
     setLoading(true)
     // Promise.all は中でやっている処理全て終わるまで待機する
-    const _pokemonData = await Promise.all(
-      data.map((pokemon) => {
+    const _pokemonData: any = await Promise.all(
+      data.map((pokemon: any) => {
         let pokemonRecord = getPokemon(pokemon.url);
         return pokemonRecord;
       })
@@ -57,7 +57,7 @@ function App() {
   // 次のページに飛ぶ処理
   const handleNextPage = async () => {
     if(nextURL){
-      const res = await getPokemon(nextURL);
+      const res: any = await getPokemon(nextURL);
       loadPokemon(res.results);
       setNextURL(res.next);
       setPreviousURL(res.previous)
@@ -67,7 +67,7 @@ function App() {
   // 前のページに飛ぶ処理
   const handlePreviousPage = async () => {
     if(previousURL){
-      const res = await getPokemon(previousURL);
+      const res: any = await getPokemon(previousURL);
       loadPokemon(res.results);
       setNextURL(res.next);
       setPreviousURL(res.previous);

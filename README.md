@@ -1,46 +1,64 @@
-# Getting Started with Create React App
+# アプリケーション名
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+このプロジェクトは、React と TypeScript を使用して構築された Web アプリケーションです。
 
-## Available Scripts
+## 📦 使用技術
 
-In the project directory, you can run:
+- [React](https://reactjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Vite](https://vitejs.dev/) または [Create React App](https://create-react-app.dev/)（使用しているものに応じて）
+- CSS（もしくは Tailwind / Sass など、使用していれば追記）
 
-### `npm start`
+## 🚀 セットアップ方法
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+以下の手順でローカル環境にセットアップできます。
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### 1. リポジトリをクローン
 
-### `npm test`
+```bash
+git clone https://github.com/your-username/your-repo-name.git
+cd your-repo-name
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 2. 依存関係をインストール
+```bash
+npm install
+```
 
-### `npm run build`
+### 3. 開発サーバーを起動
+```bash
+npm start
+```
+（vite を使っている場合は npm run dev）
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 4. ブラウザで確認
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+http://localhost:3000 にアクセスして、アプリケーションが動作していることを確認してください。
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+## 🛠️ ビルド
+本番環境用にビルドする場合は以下のコマンドを使用します：
+```bash
+npm run build
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## 📁 ディレクトリ構成（例）
+.
+└── src/
+    ├── api # 外部APIを実行する関数/
+    │   └── getPokemon.ts
+    ├── components # 再利用可能なコンポーネント類/
+    │   ├── Card
+    │   └── NavigationBar
+    ├── utils # コンポーネント内で行う処理を分離した関数など/
+    │   ├── constants.ts
+    │   ├── dataFetcher.ts
+    │   └── translater.ts
+    ├── App.css
+    ├── App.tsx
+    ├── index.css
+    └── index.tsx
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 📝 ライセンス
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+このプロジェクトは MIT ライセンスのもとで公開されています。

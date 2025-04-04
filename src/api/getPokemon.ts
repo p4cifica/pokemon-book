@@ -9,6 +9,6 @@ export const getAllPokemon = async () => {
 }
 
 // ポケモンのデータを取ってくる関数（エンドポイントは上から貰う）
-export const getPokemon = async(endpoint) => {
+export const getPokemon = async(endpoint: string) => {
   return dataFetcher(endpoint)
 }
