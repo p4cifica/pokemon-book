@@ -8,6 +8,7 @@ export const nameTranslater = async (pokemon) => {
     return response.names.find(name => name.language.name === "ja").name
 };
 
+// 英語のタイプを受け取って日本語名にして返す（変換できなければそのまま返す）
 export const typeTranslater = (type) => {
     try {
         return types[type] || type;
